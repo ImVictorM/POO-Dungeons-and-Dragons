@@ -1,4 +1,3 @@
-// skibidi dop dop dop yes yes
 function getRandomInt(min: number, max: number) {
   const newMin = Math.ceil(min);
   const newMax = Math.floor(max);
