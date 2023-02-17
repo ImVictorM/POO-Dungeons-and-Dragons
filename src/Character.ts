@@ -21,11 +21,11 @@ class Character implements Fighter {
     this._race = new Elf(this._name, this._dexterity);
     this._archetype = new Mage(this._name);
     this._maxLifePoints = this._race.maxLifePoints / 2;
-    this._lifePoints = this._race.maxLifePoints;
+    this._lifePoints = this._maxLifePoints;
     this._strength = getRandomInt(1, 10);
     this._defense = getRandomInt(1, 10);
-    this._energy = { 
-      type_: this._archetype.energyType, 
+    this._energy = {
+      type_: this._archetype.energyType,
       amount: getRandomInt(1, 10),
     };
   }
@@ -58,8 +58,8 @@ class Character implements Fighter {
     if (this._energy) {
       return {
         amount: this._energy.amount,
-        type_: this._energy.type_
-      }
+        type_: this._energy.type_,
+      };
     }
     return undefined;
   }
@@ -76,9 +76,12 @@ class Character implements Fighter {
   }
 
   levelUp(): void {
-    const attrToIncrease = [this._maxLifePoints, this._strength, this._dexterity, this._defense];
     // increasing character attributes
-    attrToIncrease.forEach((attr) => attr += getRandomInt(1, 10));
+    this._maxLifePoints += getRandomInt(1, 10);
+    this._strength += getRandomInt(1, 10);
+    this._dexterity += getRandomInt(1, 10);
+    this._defense += getRandomInt(1, 10);
+
     if (this._maxLifePoints > this.race.maxLifePoints) {
       this._maxLifePoints = this.race.maxLifePoints;
     }
