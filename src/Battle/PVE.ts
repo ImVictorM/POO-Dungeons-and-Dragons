@@ -16,9 +16,10 @@ class PVE extends Battle {
       && this.monsters.every((moster) => moster.lifePoints !== -1)
     ) {
       let index = 0;
-      if (this.monsters[index].lifePoints !== -1) {
-        this.player.attack(this.monsters[index]);
-        this.monsters[index].attack(this.player);
+      const currMonster = this.monsters[index];
+      if (currMonster.lifePoints !== -1) {
+        this.player.attack(currMonster);
+        currMonster.attack(this.player);
       } else {
         index += 1;
       }
