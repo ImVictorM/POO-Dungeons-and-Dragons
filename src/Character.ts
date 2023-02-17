@@ -1,6 +1,6 @@
 import Archetype, { Mage } from './Archetypes';
 import Energy from './Energy';
-import Fighter from './Fighter';
+import Fighter, { SimpleFighter } from './Fighter';
 import Race, { Elf } from './Races';
 import getRandomInt from './utils';
 
@@ -64,11 +64,11 @@ class Character implements Fighter {
     return undefined;
   }
 
-  attack(enemy: Fighter): void {
+  attack(enemy: SimpleFighter): void {
     enemy.receiveDamage(this._strength);
   }
 
-  special?(enemy: Fighter): void {
+  special?(enemy: SimpleFighter): void {
     if (this.energy && this.energy.amount >= 9) {
       enemy.receiveDamage(this.strength * getRandomInt(1, 4));
     }
