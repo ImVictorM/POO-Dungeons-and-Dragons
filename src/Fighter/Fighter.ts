@@ -8,6 +8,4 @@ interface Fighter extends SimpleFighter {
   levelUp(): void;
 }
 
-export { SimpleFighter };
-
 export default Fighter;
