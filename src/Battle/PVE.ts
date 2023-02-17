@@ -1,4 +1,3 @@
-import Character from '../Character';
 import Fighter, { SimpleFighter } from '../Fighter';
 import Battle from './Battle';
 
